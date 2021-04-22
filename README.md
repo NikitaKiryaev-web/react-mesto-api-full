@@ -5,3 +5,5 @@
 ## [Ссылка на front часть сайта](https://kiryaev.students.nomoredomains.club)
 
 ## [Ссылка на back часть сайта](https://api.kiryaev.students.nomoredomains.club)
+
+## IP адрес сервера 178.154.198.182
