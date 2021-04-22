@@ -4,7 +4,7 @@ const {
   getCards, createCard, deleteCard, likeCard, dislikeCard,
 } = require('../controllers/cards');
 
-const {validateCardId, validateCard} = require('../middlewares/validation');
+const { validateCardId, validateCard } = require('../middlewares/validation');
 
 router.get('/cards', getCards);
 router.post('/cards', validateCard, createCard); // вторым аргументом передаем middleware для валидации приходящих данных до обращения к бд
