@@ -3,14 +3,14 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const { errors } = require('celebrate');
 const userRouter = require('./routes/users');
 const cardRouter = require('./routes/cards');
 const { createUser, login } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const {validateSignUp, validateSignIn} = require('./middlewares/validation');
+const { validateSignUp, validateSignIn } = require('./middlewares/validation');
 const NotFoundError = require('./errors/NotFoundError');
-const {errors} = require('celebrate');
 
 dotenv.config();
 const { PORT = 3000 } = process.env;
@@ -45,8 +45,8 @@ app.use('/', userRouter);
 app.use('/', cardRouter);
 
 app.use('*', () => {
-  throw new NotFoundError("Такой страницы не существует");
-})
+  throw new NotFoundError('Такой страницы не существует');
+});
 
 app.use(errorLogger);
 app.use(errors()); // обработчик ошибок celebrate
